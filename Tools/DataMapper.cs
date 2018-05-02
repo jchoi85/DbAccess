@@ -68,5 +68,17 @@ namespace DbAccess.Tools
             double.TryParse(reader[columnIndex].ToString(), out dbl);
             return dbl;
         }
+
+        public static T GetParamValue<T>(this IDbDataParameter[] dbParams, string paramName)
+        {
+            foreach (IDbDataParameter param in dbParams)
+            {
+                if (param.ParameterName.ToLower() == paramName.ToLower())
+                {
+                    return (T)param.Value;
+                }
+            }
+            return default(T);
+        }
     }
 }

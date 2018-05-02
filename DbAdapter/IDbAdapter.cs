@@ -9,8 +9,8 @@ namespace DbAccess.DbAdapter
         IDbCommand Cmd { get; }
         IDbConnection Conn { get; }
 
-        int ExecuteQuery(string storedProcedure, IDataParameter[] parameters, Action<IDataParameter[]> returnParameters = null);
-        T ExecuteScalar<T>(string storedProcedure, IDataParameter[] parameters);
+        int ExecuteQuery(string storedProcedure, IDbDataParameter[] parameters, Action<IDbDataParameter[]> returnParameters = null);
+        T ExecuteScalar<T>(string storedProcedure, IDbDataParameter[] parameters);
         List<T> LoadObject<T>(string storedProcedure, IDbDataParameter[] parameters) where T : class;
     }
 }

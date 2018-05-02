@@ -49,7 +49,7 @@ namespace DbAccess.DbAdapter
             return list;
         }
 
-        public int ExecuteQuery(string storedProcedure, IDataParameter[] parameters, Action<IDataParameter[]> returnParameters = null)
+        public int ExecuteQuery(string storedProcedure, IDbDataParameter[] parameters, Action<IDbDataParameter[]> returnParameters = null)
         {
             using (IDbConnection conn = Conn)
             using (IDbCommand cmd = Cmd)
@@ -71,7 +71,7 @@ namespace DbAccess.DbAdapter
             }
         }
 
-        public T ExecuteScalar<T>(string storedProcedure, IDataParameter[] parameters)
+        public T ExecuteScalar<T>(string storedProcedure, IDbDataParameter[] parameters)
         {
             using (IDbConnection conn = Conn)
             using (IDbCommand cmd = Cmd)
